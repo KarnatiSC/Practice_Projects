@@ -1,5 +1,5 @@
 import random
-from xml.dom.minidom import ProcessingInstruction
+
 
 rock = '''
     _______
