@@ -1,4 +1,5 @@
 import random
+from xml.dom.minidom import ProcessingInstruction
 
 rock = '''
     _______
@@ -27,50 +28,32 @@ scissors = '''
 ---.__(___)
 '''
 
+images = [rock,paper,scissors]
 
-rand_num = random.randint(0,2)
+computer_choice = random.randint(0,2)
 user_choice = int(input("What do you choose? Type 0 for Rock, 1 for Paper or 2 for Scissors.\n"))
-print("You Chose: \n")
-
-##User Choice
-if user_choice == 0:
-    print(rock)
-elif user_choice == 1:
-    print(paper)
-elif user_choice == 2:
-    print(scissors)
+if  user_choice >= 0 and user_choice <= 2:
+    print(f"You Chose: \n {images[user_choice]}")
 else:
-    print("Please enter 0, 1 or 2 as your choice.")
+    print("You chose an invalid number! please choose again")
+
 
 ##Computer Choice
-print("Computer Chose: \n")
-if rand_num == 0:
-    print(rock)
-elif rand_num == 1:
-    print(paper)
-elif rand_num == 2:
-    print(scissors)
+print(f"Computer Chose: \n{images[computer_choice]}")
 
-##Win Declaration if user chooses rock
-if user_choice == 0 and rand_num == 0:
-    print("Its a draw")
-elif user_choice == 0 and rand_num == 1:
-    print("You Lose!!")
-elif user_choice == 0 and rand_num == 2:
-    print("You Win!!")
 
-##Win Declaration if user chooses paper
-if user_choice == 1 and rand_num == 0:
-    print("You Win!!")
-elif user_choice == 1 and rand_num == 1:
-    print("Its a draw")
-elif user_choice == 1 and rand_num == 2:
-    print("You Lose!!")
+##Rock, Paper, Scissors logic
 
-##Win Declaration if user chooses scissor
-if user_choice == 2 and rand_num == 0:
+
+if user_choice>=3 or user_choice < 0:
+    print("You entered and invalid number. You Lose!!")
+elif user_choice == 0 and computer_choice == 2:
     print("You Lose!!")
-elif user_choice == 2 and rand_num == 1:
+elif user_choice == 2 and computer_choice == 0:
     print("You Win!!")
-elif user_choice == 2 and rand_num == 2:
-    print("Its a draw")
+elif user_choice > computer_choice:
+    print("You Win!!")
+elif computer_choice > user_choice:
+    print("You Lose!!")
+elif computer_choice == user_choice:
+    print("It's a draw!")
