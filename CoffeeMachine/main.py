@@ -44,6 +44,7 @@ def check_resources(coffee):
 
 def process_coins():
     """Asks the user to put in coins and calculates the total amount of coins the user puts in."""
+    print("Please insert coins.\n")
     quarters = int(input("How many Quarters?: "))
     dimes = int(input("How many dimes?: "))
     nickles = int(input("How many nickles?: "))
@@ -90,6 +91,7 @@ while machine_operation:
                     print(f"Here is ${round((user_cash - drink_cost), 2)} in change.")
                 make_coffee(drink["ingredients"])
                 print(f"Here is your {order}☕ Enjoy!")
+
 
 
 
