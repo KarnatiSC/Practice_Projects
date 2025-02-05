@@ -36,7 +36,7 @@ def compare(a,b):
 
 def game_start():
     """The BlackJack Game. It takes user input and gives output based on the winner"""
-    print(logo)
+    print(logo_blackjack)
     user_hand = []
     computer_hand = []
     game_over = False
